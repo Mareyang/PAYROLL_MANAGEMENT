@@ -1,0 +1,15 @@
+C:\Users\Admin\OneDrive\Documents\DELA CRUZ\payroll-management-dlcrz\bin\Debug\net8.0\payrollsystem.exe
+C:\Users\Admin\OneDrive\Documents\DELA CRUZ\payroll-management-dlcrz\bin\Debug\net8.0\payrollsystem.deps.json
+C:\Users\Admin\OneDrive\Documents\DELA CRUZ\payroll-management-dlcrz\bin\Debug\net8.0\payrollsystem.runtimeconfig.json
+C:\Users\Admin\OneDrive\Documents\DELA CRUZ\payroll-management-dlcrz\bin\Debug\net8.0\payrollsystem.dll
+C:\Users\Admin\OneDrive\Documents\DELA CRUZ\payroll-management-dlcrz\bin\Debug\net8.0\payrollsystem.pdb
+C:\Users\Admin\OneDrive\Documents\DELA CRUZ\payroll-management-dlcrz\obj\Debug\net8.0\payrollsystem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\OneDrive\Documents\DELA CRUZ\payroll-management-dlcrz\obj\Debug\net8.0\payrollsystem.AssemblyInfoInputs.cache
+C:\Users\Admin\OneDrive\Documents\DELA CRUZ\payroll-management-dlcrz\obj\Debug\net8.0\payrollsystem.AssemblyInfo.cs
+C:\Users\Admin\OneDrive\Documents\DELA CRUZ\payroll-management-dlcrz\obj\Debug\net8.0\payrollsystem.csproj.CoreCompileInputs.cache
+C:\Users\Admin\OneDrive\Documents\DELA CRUZ\payroll-management-dlcrz\obj\Debug\net8.0\payrollsystem.sourcelink.json
+C:\Users\Admin\OneDrive\Documents\DELA CRUZ\payroll-management-dlcrz\obj\Debug\net8.0\payrollsystem.dll
+C:\Users\Admin\OneDrive\Documents\DELA CRUZ\payroll-management-dlcrz\obj\Debug\net8.0\refint\payrollsystem.dll
+C:\Users\Admin\OneDrive\Documents\DELA CRUZ\payroll-management-dlcrz\obj\Debug\net8.0\payrollsystem.pdb
+C:\Users\Admin\OneDrive\Documents\DELA CRUZ\payroll-management-dlcrz\obj\Debug\net8.0\payrollsystem.genruntimeconfig.cache
+C:\Users\Admin\OneDrive\Documents\DELA CRUZ\payroll-management-dlcrz\obj\Debug\net8.0\ref\payrollsystem.dll
