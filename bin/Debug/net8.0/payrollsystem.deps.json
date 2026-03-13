@@ -7,14 +7,63 @@
   "targets": {
     ".NETCoreApp,Version=v8.0": {
       "payrollsystem/1.0.0": {
+        "dependencies": {
+          "PayrollManagement": "1.0.0"
+        },
         "runtime": {
           "payrollsystem.dll": {}
+        }
+      },
+      "PayrollDataServices/1.0.0": {
+        "dependencies": {
+          "PayrollManagementModels": "1.0.0"
+        },
+        "runtime": {
+          "PayrollDataServices.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "PayrollManagement/1.0.0": {
+        "dependencies": {
+          "PayrollDataServices": "1.0.0",
+          "PayrollManagementModels": "1.0.0"
+        },
+        "runtime": {
+          "PayrollManagement.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "PayrollManagementModels/1.0.0": {
+        "runtime": {
+          "PayrollManagementModels.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
   },
   "libraries": {
     "payrollsystem/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PayrollDataServices/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PayrollManagement/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PayrollManagementModels/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

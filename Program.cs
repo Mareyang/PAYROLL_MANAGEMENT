@@ -1,168 +1,170 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using PayrollManagement;
+using PayrollManagementModels;
 
 namespace payrollsystem
 {
     internal class Program
     {
+        static payrollservices payrollService = new payrollservices();
+
         static void Main(string[] args)
         {
-            Console.WriteLine("---------------PAYROLL MANAGEMENT SYSTEM---------------");
-
-            string[] employeeId = new string[3];
-            string[] employeeName = new string[3];
-
-            employeeId[0] = "A00";
-            employeeId[1] = "B11";
-            employeeId[2] = "C22";
-
-            employeeName[0] = "Employee A";
-            employeeName[1] = "Employee B";
-            employeeName[2] = "Employee C";
-
-            int[] employeeDays = new int[3];
-            int[] employeeOT = new int[3];
-
-            employeeDays[0] = 12;
-            employeeDays[1] = 10;
-            employeeDays[2] = 8;
-
-            employeeOT[0] = 2;
-            employeeOT[1] = 3;
-            employeeOT[2] = 5;
-
-            double sss = 0.045, philp = 0.025, pagibig = 0.02, c = 0, d = 0, e = 0, f = 0;
-            double perday = 600, b = 0;
-            double Othr = 92, a = 0;
-
-
-
-
-
-            Console.Write("Enter Employee ID: ");
-            string id = Console.ReadLine();
-
-            if (id == employeeId[0])
+            while (true)
             {
-                Console.WriteLine("Employee Name: " + employeeName[0]); Console.WriteLine("Position: Crew");
-                a = employeeDays[0] * perday;
-                Console.Write("Days Worked: " + employeeDays[0]); Console.Write("          ");  Console.WriteLine("Basic Pay: " + a);
-                b = employeeOT[0] * Othr;
-                Console.Write("Overtime (hrs): " + employeeOT[0]); Console.Write("        "); Console.WriteLine("Overtime: " + b);
-                c = a + b;
-                Console.Write("TOTAL EARNINGS: " + c );
-                Console.WriteLine("        ");
-                Console.WriteLine("---------------DEDUCTIONS---------------");
-                d = c * sss;
-                Console.WriteLine("SSS: " + d);
-                e = c * philp;
-                Console.WriteLine("PhilHealth: " + e);
-                f = c * pagibig;
-                Console.WriteLine("Pag-Ibig: " + f);
-                Console.WriteLine("Total Deduction: " + (d+e+f));
+                Console.WriteLine("------ PAYROLL MANAGEMENT SYSTEM ------");
 
-                Console.WriteLine("---------------NET PAY---------------");
-                Console.WriteLine("SALARY: " + (c - (d+e+f)));
+                Console.WriteLine("[1] ADMIN");
+                Console.WriteLine("[2] EMPLOYEE");
+                Console.WriteLine("[3] EXIT");
+                Console.Write("Choose Option: ");
 
+                string option = Console.ReadLine();
+
+                switch (option)
+                {
+                    case "1":
+                        AdminLogin();
+                        break;
+                    case "2":
+                        EmployeePayslip();
+                        break;
+                    case "3":
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.WriteLine("Invalid.");
+                        break;
+                }
+
+          
             }
 
-            else if (id == employeeId[1])
+            static void AdminLogin()
             {
-                Console.WriteLine("Employee Name: " + employeeName[1]); Console.WriteLine("Position: Crew");
-                a = employeeDays[1] * perday;
-                Console.Write("Days Worked: " + employeeDays[1]); Console.Write("          "); Console.WriteLine("Basic Pay: " + a);
-                b = employeeOT[1] * Othr;
-                Console.Write("Overtime (hrs): " + employeeOT[1]); Console.Write("        "); Console.WriteLine("Overtime: " + b);
-                c = a + b;
-                Console.Write("TOTAL EARNINGS: " + c);
-                Console.WriteLine("        ");
-                Console.WriteLine("---------------DEDUCTIONS---------------");
-                d = c * sss;
-                Console.WriteLine("SSS: " + d);
-                e = c * philp;
-                Console.WriteLine("PhilHealth: " + e);
-                f = c * pagibig;
-                Console.WriteLine("Pag-Ibig: " + f);
-                Console.WriteLine("Total Deduction: " + (d + e + f));
+                Console.Write("Username: ");
+                string username = Console.ReadLine();
 
-                Console.WriteLine("---------------NET PAY---------------");
-                Console.WriteLine("SALARY: " + (c - (d + e + f)));
+                Console.Write("Password: ");
+                string password = Console.ReadLine();
+
+                if (payrollService.AdminLogin(username, password))
+                {
+                    AdminMenu();
+                }
+                else
+                {
+                    Console.WriteLine("Invalid login.");
+                }
             }
 
-            else if (id == employeeId[2])
+            static void AdminMenu()
             {
-                Console.WriteLine("Employee Name: " + employeeName[2]); Console.WriteLine("Position: Crew");
-                a = employeeDays[2] * perday;
-                Console.Write("Days Worked: " + employeeDays[2]); Console.Write("          "); Console.WriteLine("Basic Pay: " + a);
-                b = employeeOT[2] * Othr;
-                Console.Write("Overtime (hrs): " + employeeOT[2]); Console.Write("        "); Console.WriteLine("Overtime: " + b);
-                c = a + b;
-                Console.Write("TOTAL EARNINGS: " + c);
-                Console.WriteLine("        ");
-                Console.WriteLine("---------------DEDUCTIONS---------------");
-                d = c * sss;
-                Console.WriteLine("SSS: " + d);
-                e = c * philp;
-                Console.WriteLine("PhilHealth: " + e);
-                f = c * pagibig;
-                Console.WriteLine("Pag-Ibig: " + f);
-                Console.WriteLine("Total Deduction: " + (d + e + f));
+                Console.WriteLine("\nADMIN MENU");
+                Console.WriteLine("[1] Add Employee");
+                Console.WriteLine("[2] View Employees");
+                Console.WriteLine("[3] Search Employee");
 
-                Console.WriteLine("---------------NET PAY---------------");
-                Console.WriteLine("SALARY: " + (c - (d + e + f)));
+                Console.Write("Choose: ");
+                string option = Console.ReadLine();
 
+                if (option == "1")
+                    AddEmployee();
+
+                else if (option == "2")
+                    ViewEmployees();
+
+                else if (option == "3")
+                    SearchEmployee();
             }
 
-            else 
+            static void AddEmployee()
             {
-                Console.WriteLine("Invalid Input!!");
+                Employee emp = new Employee();
+
+                Console.Write("Employee ID: ");
+                emp.EmployeeId = Console.ReadLine();
+
+                Console.Write("Name: ");
+                emp.Name = Console.ReadLine();
+
+                Console.Write("Position: ");
+                emp.Position = Console.ReadLine();
+
+                Console.Write("Days Worked: ");
+                emp.DaysWorked = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("Overtime Hours: ");
+                emp.OvertimeHours = Convert.ToInt32(Console.ReadLine());
+
+                emp.DailyRate = 600;
+                emp.OvertimeRate = 92;
+
+                payrollService.AddEmployee(emp);
+
+                Console.WriteLine("Employee added successfully.");
             }
 
+            static void ViewEmployees()
+            {
+                var employees = payrollService.GetEmployees();
 
+                foreach (var emp in employees)
+                {
+                    Console.WriteLine($"{emp.EmployeeId} - {emp.Name}");
+                }
+            }
 
+            static void SearchEmployee()
+            {
+                Console.Write("Enter Employee ID: ");
+                string id = Console.ReadLine();
 
+                var emp = payrollService.SearchEmployee(id);
 
+                if (emp != null)
+                {
+                    Console.WriteLine($"{emp.EmployeeId} - {emp.Name}");
 
+                    double earnings = payrollService.TotalEarnings(emp);
+                    double deduction = payrollService.TotalDeduction(emp);
+                    double net = payrollService.NetPay(emp);
 
+                    Console.WriteLine("\n------ PAYSLIP ------");
+                    Console.WriteLine("Name: " + emp.Name);
+                    Console.WriteLine("Position: " + emp.Position);
+                    Console.WriteLine("Total Earnings: " + earnings);
+                    Console.WriteLine("Total Deduction: " + deduction);
+                    Console.WriteLine("Net Pay: " + net);
+                }
 
+                else
+                    Console.WriteLine("Employee not found.");
+            }
 
+            static void EmployeePayslip()
+            {
+                Console.Write("Enter Employee ID: ");
+                string id = Console.ReadLine();
 
+                var emp = payrollService.SearchEmployee(id);
 
+                if (emp == null)
+                {
+                    Console.WriteLine("Employee not found.");
+                    return;
+                }
 
+                double earnings = payrollService.TotalEarnings(emp);
+                double deduction = payrollService.TotalDeduction(emp);
+                double net = payrollService.NetPay(emp);
 
-            /* string employeeName;
-            Console.Write("Enter employee name: ");
-            employeeName = Console.ReadLine();
-
-           string position;
-            Console.Write("Enter employee position: ");
-            position = Console.ReadLine(); 
-
-            int daysWorked;
-            Console.Write("Enter number of days worked: ");
-            daysWorked = int.Parse(Console.ReadLine());
-
-          /* int hoursWorked;
-            Console.Write("Enter number of hours worked: ");
-            hoursWorked = int.Parse(Console.ReadLine()); 
-
-
-            int perday = 600;
-            int salary = daysWorked * perday;
-
-            Console.WriteLine(" ");
-
-            Console.WriteLine("--------------------PAYSLIP--------------------");
-            Console.Write("EMPLOYEE: ");
-            Console.Write(employeeName);
-            
-            Console.WriteLine(" ");
-
-            Console.Write("TOTAL SALARY: ");
-            Console.Write((int)salary); */
-
-
-
-
+                Console.WriteLine("\n------ PAYSLIP ------");
+                Console.WriteLine("Name: " + emp.Name);
+                Console.WriteLine("Position: " + emp.Position);
+                Console.WriteLine("Total Earnings: " + earnings);
+                Console.WriteLine("Total Deduction: " + deduction);
+                Console.WriteLine("Net Pay: " + net);
+            }
         }
     }
 }
