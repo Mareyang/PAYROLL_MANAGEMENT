@@ -1,5 +1,6 @@
 ﻿using PayrollManagement;
 using PayrollManagementModels;
+using System.Data.Common;
 
 namespace payrollsystem
 {
@@ -67,7 +68,8 @@ namespace payrollsystem
                     Console.WriteLine("[1] Add Employee");
                     Console.WriteLine("[2] View Employees");
                     Console.WriteLine("[3] Search Employee");
-                    Console.WriteLine("[4] Exit Admin Menu");
+                    Console.WriteLine("[4] Update Employee");
+                    Console.WriteLine("[5] Exit Admin Menu");
 
                     Console.Write("Choose: ");
                     option = Console.ReadLine();
@@ -81,120 +83,178 @@ namespace payrollsystem
                     else if (option == "3")
                         SearchEmployee();
 
-                    else if (option == "4") ;
+                    else if (option == "4")
+                        UpdateEmployee();
+
+                    else if (option == "5") 
+                        Environment.Exit(0);
 
                 }
             }
 
-                static void AddEmployee()
+            static void AddEmployee()
+            {
+                Employee emp = new Employee();
+
+                Console.Write("Name: ");
+                emp.Name = Console.ReadLine();
+
+                Console.Write("Position: ");
+                emp.Position = Console.ReadLine();
+
+                Console.Write("Days Worked: ");
+                emp.DaysWorked = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("Overtime Hours: ");
+                emp.OvertimeHours = Convert.ToInt32(Console.ReadLine());
+
+                emp.DailyRate = 600;
+                emp.OvertimeRate = 92;
+
+                payrollService.AddEmployee(emp);
+
+                Console.WriteLine("Employee added successfully.");
+            }
+
+            static void ViewEmployees()
+            {
+                var employees = payrollService.GetEmployees();
+                var emp = employees.FirstOrDefault();
+
+                for (int i = 0; i < employees.Count; i++)
                 {
-                    Employee emp = new Employee();
+                    Console.WriteLine($"{i+1}. {employees[i].Name}");
 
-                    Console.Write("Employee ID: ");
-                    emp.EmployeeId = Console.ReadLine();
+                }
+                //foreach (var emp in employees)
+                //{
+                //    Console.WriteLine($"{emp.EmployeeId} - {emp.Name}");
+                //}
+            }
 
-                    Console.Write("Name: ");
-                    emp.Name = Console.ReadLine();
+            static void UpdateEmployee()
+            {
+                var emp = payrollService.GetEmployees();
+                Console.Write("Enter Employee ID to Edit: ");
+                int index = Convert.ToInt32(Console.ReadLine()) - 1;
 
-                    Console.Write("Position: ");
-                    emp.Position = Console.ReadLine();
+                if (index < 0 || index >= emp.Count) {
+                    Console.Write("Invalid");
+                    return;
+                }
+                Guid selectedI = emp[index].EmployeeId;
+                
+
+                if (selectedI != null)
+                {
+                    Console.Write("New Name: ");
+                    string name = Console.ReadLine();
+
+                    Console.Write("New Position: ");
+                    string position = Console.ReadLine();
 
                     Console.Write("Days Worked: ");
-                    emp.DaysWorked = Convert.ToInt32(Console.ReadLine());
+                    int days = Convert.ToInt32(Console.ReadLine());
 
                     Console.Write("Overtime Hours: ");
-                    emp.OvertimeHours = Convert.ToInt32(Console.ReadLine());
+                    int oh = Convert.ToInt32(Console.ReadLine());
 
-                    emp.DailyRate = 600;
-                    emp.OvertimeRate = 92;
+                    payrollService.UpdateEmployee(selectedI,name, position, days, oh);
 
-                    payrollService.AddEmployee(emp);
-
-                    Console.WriteLine("Employee added successfully.");
+                    Console.WriteLine("Employee updated successfully.");
                 }
-
-                static void ViewEmployees()
+                else
                 {
-                    var employees = payrollService.GetEmployees();
-
-                    foreach (var emp in employees)
-                    {
-                        Console.WriteLine($"{emp.EmployeeId} - {emp.Name}");
-                    }
+                    Console.WriteLine("Employee not found.");
                 }
+            }
 
-                static void SearchEmployee()
+            static void SearchEmployee()
+            {
+                var emp = payrollService.GetEmployees();
+                Console.Write("Enter Employee ID to Edit: ");
+                int index = Convert.ToInt32(Console.ReadLine()) - 1;
+
+                if (index < 0 || index >= emp.Count)
                 {
-                    Console.Write("Enter Employee ID: ");
-                    string id = Console.ReadLine();
-
-                    var emp = payrollService.SearchEmployee(id);
-
-                    if (emp != null)
-                    {
-                        Console.WriteLine($"{emp.EmployeeId} - {emp.Name}");
-
-                        double earnings = payrollService.TotalEarnings(emp);
-                        double deduction = payrollService.TotalDeduction(emp);
-                        double SSSdeduct = payrollService.PerSSS(emp);
-                        double Phildeduct = payrollService.PerPhil(emp);
-                        double PagIbigdeduct = payrollService.PerPagIbig(emp);
-                        double net = payrollService.NetPay(emp);
-
-                        Console.WriteLine("\n------ PAYSLIP ------");
-                        Console.WriteLine("Name: " + emp.Name);
-                        Console.WriteLine("Position: " + emp.Position);
-                        Console.WriteLine("Total Earnings: " + earnings);
-
-                        Console.WriteLine("\n------ DEDUCTION ------");
-                        Console.WriteLine("SSS: " + SSSdeduct.ToString("0.00"));
-                        Console.WriteLine("PhilHealth: " + Phildeduct.ToString("0.00"));
-                        Console.WriteLine("Pagibig: " + PagIbigdeduct.ToString("0.00"));
-                        Console.WriteLine("TOTAL DEDUCTION: " + deduction.ToString("0.00"));
-
-                        Console.WriteLine("\n------ NET PAY ------");
-                        Console.WriteLine("Net Pay: " + net);
-                    }
-
-                    else
-                        Console.WriteLine("Employee not found.");
+                    Console.Write("Invalid");
+                    return;
                 }
+                Guid selectedI = emp[index].EmployeeId;
 
-                static void EmployeePayslip()
+                var e = payrollService.SearchEmployee(selectedI);
+
+                if (selectedI != null)
+
                 {
-                    Console.Write("Enter Employee ID: ");
-                    string id = Console.ReadLine();
+                    Console.WriteLine($"{e.EmployeeId} - {e.Name}");
 
-                    var emp = payrollService.SearchEmployee(id);
-
-                    if (emp == null)
-                    {
-                        Console.WriteLine("Employee not found.");
-                        return;
-                    }
-
-                    double earnings = payrollService.TotalEarnings(emp);
-                    double deduction = payrollService.TotalDeduction(emp);
-                    double SSSdeduct = payrollService.PerSSS(emp);
-                    double Phildeduct = payrollService.PerPhil(emp);
-                    double PagIbigdeduct = payrollService.PerPagIbig(emp);
-                    double net = payrollService.NetPay(emp);
+                    double earnings = payrollService.TotalEarnings(e);
+                    double deduction = payrollService.TotalDeduction(e);
+                    double SSSdeduct = payrollService.PerSSS(e);
+                    double Phildeduct = payrollService.PerPhil(e);
+                    double PagIbigdeduct = payrollService.PerPagIbig(e);
+                    double net = payrollService.NetPay(e);
 
                     Console.WriteLine("\n------ PAYSLIP ------");
-                    Console.WriteLine("Name: " + emp.Name);
-                    Console.WriteLine("Position: " + emp.Position);
+                    Console.WriteLine("Name: " + e.Name);
+                    Console.WriteLine("Position: " + e.Position);
                     Console.WriteLine("Total Earnings: " + earnings);
 
                     Console.WriteLine("\n------ DEDUCTION ------");
-                    Console.WriteLine("SSS: " + SSSdeduct);
-                    Console.WriteLine("PhilHealth: " + Phildeduct);
-                    Console.WriteLine("Pagibig: " + PagIbigdeduct);
-                    Console.WriteLine("TOTAL DEDUCTION: " + deduction);
+                    Console.WriteLine("SSS: " + SSSdeduct.ToString("0.00"));
+                    Console.WriteLine("PhilHealth: " + Phildeduct.ToString("0.00"));
+                    Console.WriteLine("Pagibig: " + PagIbigdeduct.ToString("0.00"));
+                    Console.WriteLine("TOTAL DEDUCTION: " + deduction.ToString("0.00"));
 
                     Console.WriteLine("\n------ NET PAY ------");
                     Console.WriteLine("Net Pay: " + net);
                 }
-            }
-        }
 
+                else
+                    Console.WriteLine("Employee not found.");
+            }
+            static void EmployeePayslip()
+            {
+                Console.Write("Enter Employee ID: ");
+                Guid id = Guid.Parse(Console.ReadLine());
+
+                var emp = payrollService.SearchEmployee(id);
+
+                if (emp == null)
+                {
+                    Console.WriteLine("Employee not found.");
+                    return;
+                }
+
+                double earnings = payrollService.TotalEarnings(emp);
+                double deduction = payrollService.TotalDeduction(emp);
+                double SSSdeduct = payrollService.PerSSS(emp);
+                double Phildeduct = payrollService.PerPhil(emp);
+                double PagIbigdeduct = payrollService.PerPagIbig(emp);
+                double net = payrollService.NetPay(emp);
+
+                Console.WriteLine("\n------ PAYSLIP ------");
+                Console.WriteLine("Name: " + emp.Name);
+                Console.WriteLine("Position: " + emp.Position);
+                Console.WriteLine("Total Earnings: " + earnings);
+
+                Console.WriteLine("\n------ DEDUCTION ------");
+                Console.WriteLine("SSS: " + SSSdeduct);
+                Console.WriteLine("PhilHealth: " + Phildeduct);
+                Console.WriteLine("Pagibig: " + PagIbigdeduct);
+                Console.WriteLine("TOTAL DEDUCTION: " + deduction);
+
+                Console.WriteLine("\n------ NET PAY ------");
+                Console.WriteLine("Net Pay: " + net);
+            }
+
+        }
     }
+}
+
+
+
+
+
+
