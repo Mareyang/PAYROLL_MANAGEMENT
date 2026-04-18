@@ -126,10 +126,7 @@ namespace payrollsystem
                     Console.WriteLine($"{i+1}. {employees[i].Name}");
 
                 }
-                //foreach (var emp in employees)
-                //{
-                //    Console.WriteLine($"{emp.EmployeeId} - {emp.Name}");
-                //}
+               
             }
 
             static void UpdateEmployee()
@@ -172,7 +169,7 @@ namespace payrollsystem
             static void SearchEmployee()
             {
                 var emp = payrollService.GetEmployees();
-                Console.Write("Enter Employee ID to Edit: ");
+                Console.Write("Enter Employee ID to Search: ");
                 int index = Convert.ToInt32(Console.ReadLine()) - 1;
 
                 if (index < 0 || index >= emp.Count)
@@ -216,10 +213,13 @@ namespace payrollsystem
             }
             static void EmployeePayslip()
             {
-                Console.Write("Enter Employee ID: ");
-                Guid id = Guid.Parse(Console.ReadLine());
+                var e = payrollService.GetEmployees();
 
-                var emp = payrollService.SearchEmployee(id);
+                Console.Write("Enter Employee ID: ");
+                int index= Convert.ToInt32(Console.ReadLine()) - 1;
+
+                Guid selectedI = e[index].EmployeeId;
+                var emp = payrollService.SearchEmployee(selectedI);
 
                 if (emp == null)
                 {

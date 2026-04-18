@@ -7,13 +7,7 @@
       "RelativeMoniker": "D:0:0:{D580BF0B-17F6-46A3-9B66-88D2E00D1AF7}|payrollsystem.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1FFF5EBA-D05A-43D5-A8F7-FCADF3C742F9}|..\\PayrollDataServices\\PayrollDataServices.csproj|c:\\users\\admin\\onedrive\\documents\\dela cruz\\payrolldataservices\\empjsondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0753B78E-DD15-4E80-8DE5-FACABCEB15BF}|..\\PayrollManagement\\PayrollManagement.csproj|c:\\users\\admin\\onedrive\\documents\\dela cruz\\payrollmanagement\\payrollservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1FFF5EBA-D05A-43D5-A8F7-FCADF3C742F9}|..\\PayrollDataServices\\PayrollDataServices.csproj|c:\\users\\admin\\onedrive\\documents\\dela cruz\\payrolldataservices\\payrolldbdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1FFF5EBA-D05A-43D5-A8F7-FCADF3C742F9}|..\\PayrollDataServices\\PayrollDataServices.csproj|c:\\users\\admin\\onedrive\\documents\\dela cruz\\payrolldataservices\\payrolldataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -22,7 +16,16 @@
       "AbsoluteMoniker": "D:0:0:{1FFF5EBA-D05A-43D5-A8F7-FCADF3C742F9}|..\\PayrollDataServices\\PayrollDataServices.csproj|c:\\users\\admin\\onedrive\\documents\\dela cruz\\payrolldataservices\\iemployeedataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{1FFF5EBA-D05A-43D5-A8F7-FCADF3C742F9}|..\\PayrollDataServices\\PayrollDataServices.csproj|c:\\users\\admin\\onedrive\\documents\\dela cruz\\payrolldataservices\\payrolldbdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1FFF5EBA-D05A-43D5-A8F7-FCADF3C742F9}|..\\PayrollDataServices\\PayrollDataServices.csproj|c:\\users\\admin\\onedrive\\documents\\dela cruz\\payrolldataservices\\payrollmemorydata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C0ED6570-0CD1-4CE4-9852-665A0D602035}|..\\PayrollManagemenrModels\\PayrollManagementModels.csproj|c:\\users\\admin\\onedrive\\documents\\dela cruz\\payrollmanagemenrmodels\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1FFF5EBA-D05A-43D5-A8F7-FCADF3C742F9}|..\\PayrollDataServices\\PayrollDataServices.csproj|c:\\users\\admin\\onedrive\\documents\\dela cruz\\payrolldataservices\\empjsondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -32,7 +35,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -40,57 +43,68 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
+              "Title": "PayrollMemoryData.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Documents\\DELA CRUZ\\PayrollDataServices\\PayrollMemoryData.cs",
+              "RelativeDocumentMoniker": "..\\PayrollDataServices\\PayrollMemoryData.cs",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\Documents\\DELA CRUZ\\PayrollDataServices\\PayrollMemoryData.cs",
+              "RelativeToolTip": "..\\PayrollDataServices\\PayrollMemoryData.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T23:58:13.375Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "payrollservices.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Documents\\DELA CRUZ\\PayrollManagement\\payrollservices.cs",
               "RelativeDocumentMoniker": "..\\PayrollManagement\\payrollservices.cs",
               "ToolTip": "C:\\Users\\Admin\\OneDrive\\Documents\\DELA CRUZ\\PayrollManagement\\payrollservices.cs",
               "RelativeToolTip": "..\\PayrollManagement\\payrollservices.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwCAAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-22T09:20:34.471Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "PayrollDBData.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Documents\\DELA CRUZ\\PayrollDataServices\\PayrollDBData.cs",
               "RelativeDocumentMoniker": "..\\PayrollDataServices\\PayrollDBData.cs",
               "ToolTip": "C:\\Users\\Admin\\OneDrive\\Documents\\DELA CRUZ\\PayrollDataServices\\PayrollDBData.cs",
               "RelativeToolTip": "..\\PayrollDataServices\\PayrollDBData.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAQwIUAAACBAAAAAAAAAA==",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAkwHIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-22T08:55:14.865Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "PayrollDataService.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Documents\\DELA CRUZ\\PayrollDataServices\\PayrollDataService.cs",
               "RelativeDocumentMoniker": "..\\PayrollDataServices\\PayrollDataService.cs",
               "ToolTip": "C:\\Users\\Admin\\OneDrive\\Documents\\DELA CRUZ\\PayrollDataServices\\PayrollDataService.cs",
               "RelativeToolTip": "..\\PayrollDataServices\\PayrollDataService.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-17T02:20:14.918Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "EmpJSONData.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Documents\\DELA CRUZ\\PayrollDataServices\\EmpJSONData.cs",
               "RelativeDocumentMoniker": "..\\PayrollDataServices\\EmpJSONData.cs",
               "ToolTip": "C:\\Users\\Admin\\OneDrive\\Documents\\DELA CRUZ\\PayrollDataServices\\EmpJSONData.cs",
               "RelativeToolTip": "..\\PayrollDataServices\\EmpJSONData.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAABSAAAAAAAAAA==",
+              "ViewState": "AgIAAE8AAAAAAAAAAADwvz8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-22T08:49:50.403Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-22T08:49:50.403Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "IEmployeeDataService.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\Documents\\DELA CRUZ\\PayrollDataServices\\IEmployeeDataService.cs",
               "RelativeDocumentMoniker": "..\\PayrollDataServices\\IEmployeeDataService.cs",
@@ -108,7 +122,7 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\Admin\\OneDrive\\Documents\\DELA CRUZ\\PAYROLL_MANAGEMENT\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAOEAAAA9AAAAAAAAAA==",
+              "ViewState": "AgIAALEAAAAAyHGYStgDwNsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-21T09:52:26.397Z",
               "EditorCaption": ""
